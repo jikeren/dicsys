@@ -1,0 +1,102 @@
+<!-- <view class="swiper-tab">
+  <block wx:for="{{swipertab}}" wx:key="sptab">
+    <view class="swiper-tab-list {{currtab == item.index ? 'on' : ''}}" data-current="{{item.index}}" bindtap="tabSwitch">{{item.name}}</view>
+  </block>
+</view>
+<swiper current="{{currtab}}" class="swiper-box" duration="300" style="height:{{deviceH-31}}px" bindchange="tabChange">
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="title">
+        <text>{{swipertab[0].name}}图</text>
+      </view>
+      <canvas class="canvas" canvas-id="barGraph"></canvas>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="title">
+        <text>{{swipertab[1].name}}图</text>
+      </view>
+      <canvas class="canvas" canvas-id="lineGraph"></canvas>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="title">
+        <text>{{swipertab[2].name}}图</text>
+      </view>
+      <canvas class="canvas" canvas-id="pieGraph"></canvas>
+    </scroll-view>
+  </swiper-item>
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <view class="title">
+        <text>{{swipertab[3].name}}图</text>
+      </view>
+      <canvas class="canvas" canvas-id="areaGraph"></canvas>
+    </scroll-view>
+  </swiper-item>
+</swiper> -->
+<radio-group bindchange="radioChange">
+    <view class="selectTable-cell">
+        <label class="weui-check-label" wx:for="{{items}}" wx:key="{{item.value}}">
+            <view > <radio value="{{item.value}}" checked="true"/> </view>
+            <view > {{item.name}}</view>
+        </label>
+     </view>
+</radio-group>
+
+<view class="selectTable-cell">
+  <view class="weui-check-label"> 
+    <text>开始日期:   </text>   
+    <picker  mode="date" value="{{date}}" start="2019-09-01" end="2027-09-01" bindchange="bindDateChange">
+                  <view class="weui-input">{{date}}</view>
+    </picker>
+  </view>
+  <view class="weui-check-label"> 
+    <text>结束日期:   </text>   
+    <picker  mode="date" value="{{date}}" start="2019-09-01" end="2027-09-01" bindchange="bindDateChange">
+       <view class="weui-input">{{date}}</view>
+    </picker>
+  </view>
+</view>
+
+<view class="graph-box">
+  <swiper-item>
+    <scroll-view class="hot-box" scroll-y="true">
+      <canvas class="canvas" canvas-id="pieGraph"></canvas>
+    </scroll-view>
+  </swiper-item>
+</view>
+<view class="total-box">
+  <view>焊丝成本最高设备：<text  class="text-green">KX0000000</text>        </view>
+  <view>摊销成本最高设备：<text  class="text-red">KX0000000</text> </view>
+  <view>能耗成本最高设备：<text  class="text-green">KX0000000</text> </view>
+  <view>气体成本最高设备：<text  class="text-red">KX0000000</text> </view>
+</view>
+
+<view class="table">
+  <view class="tr bg-w">
+    <view class="th">焊机编号</view>
+    <view class="th">能耗成本</view>
+    <view class="th ">气体成本</view>
+    <view class="th ">摊销成本</view>
+    <view class="th ">焊丝成本</view>
+  </view>
+  <block wx:for="{{listData}}" >
+    <view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+      <view class="td">0</view>
+      <view class="td">0</view>
+    </view>
+    <view class="tr" wx:else>
+      <view class="td">{{item.code}}</view>
+      <view class="td">{{item.text}}</view>
+      <view class="td">{{item.type}}</view>
+      <view class="td">0</view>
+      <view class="td">0</view>
+    </view>
+  </block>
+</view>

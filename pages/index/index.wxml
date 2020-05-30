@@ -1,0 +1,61 @@
+<import src="../../common/foot.wxml" />
+
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+
+    <!-- <view class="page-section page-section-spacing swiper"> -->
+    <view class="index-hd">
+      <swiper indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+        <block wx:for="{{background}}" wx:key="*this">
+          <swiper-item>
+            <view >
+            <image class="index-logo" src="../../images/hanyan-huohua.jpg"></image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+
+<!-- <view class="index-hd">
+    <image class="index-logo" src="../../images/hanyan-huohua.jpg"></image>
+</view> -->
+
+<view class="page-body">
+      <view class="page-section">
+        <view class="weui-cells__title">登陆名</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" auto-focus placeholder="手机/邮箱/用户名"/>
+          </view>
+        </view>
+      </view>
+      <view class="page-section">
+        <view class="weui-cells__title">密码</view>
+        <view class="weui-cells weui-cells_after-title">
+          <view class="weui-cell weui-cell_input">
+            <input class="weui-input" password type="text" placeholder="密码输入框" />
+          </view>
+        </view>
+      </view>
+  </view>
+<view class="page-login">
+    <button type="primary" bindtap="bindViewTableIndex">登陆</button>
+    <button type="primary">注册</button>
+</view>
+<view class="login-forget">
+  <text class="login-text">忘记密码？</text>
+</view>
+<text  bindtap="bindViewTap">查看启动日志</text>
+<template is="foot" />
